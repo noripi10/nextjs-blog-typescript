@@ -1,6 +1,7 @@
 .blogList {
-  padding-top: 16px;
-  width: 100%;
+  padding-top: 0px;
+  margin-bottom: 120px;
+  width: 70%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 16px;

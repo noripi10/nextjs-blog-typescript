@@ -7,7 +7,7 @@ export const Header = () => {
     <div className={styles.header}>
       <div className={styles.header_title}>
         <Link href='/'>
-          <a>気ままにBlog</a>
+          <a>気ままにプログラミングのことを書こうと思うBlog</a>
         </Link>
       </div>
       <div className={styles.header_setting}>
