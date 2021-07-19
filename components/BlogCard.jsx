@@ -7,7 +7,14 @@ export const BlogCard = ({ blog }) => {
     <Link href={`/blog/${blog?.id}`}>
       <a>
         <div className={styles.blogCard}>
-          <Image src={blog.mainVisual.url} alt='main blog image' objectFit='cover' width={400} height={200} />
+          <Image
+            className={styles.blogImage}
+            src={blog.mainVisual.url}
+            alt='main blog image'
+            objectFit='cover'
+            width={1000}
+            height={500}
+          />
           <div className={styles.blogInfo}>
             <div>{blog.title}</div>
             <div>作成日:{blog.createdAt}</div>
