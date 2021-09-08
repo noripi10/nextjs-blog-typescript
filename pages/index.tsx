@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import styles from '../styles/global.module.scss'
 import blogStyles from '../styles/blog.module.scss'
 import { Container } from '../components/Container'
@@ -30,7 +31,7 @@ const Home: React.FC<Props> = (props) => {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get<ResponseBlogDataType>({ endpoint: 'techblog' })
 
   // 作成日でバブルソート

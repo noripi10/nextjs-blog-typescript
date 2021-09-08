@@ -36,6 +36,7 @@ const BlogId: React.FC<Props> = ({ blog }) => {
   )
 }
 
+// 静的Pathを生成しておく
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get<ResponseBlogDataType>({ endpoint: 'techblog' })
 
@@ -43,16 +44,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context: { params: { id: string } }) => {
-  const data = await client.get({
+type StaticProps = {
+  blog: BlogType
+}
+type StaticParams = {
+  id: string
+}
+// 受け取ったパラメータからパラメータ（blog）を取得
+export const getStaticProps: GetStaticProps<StaticProps, StaticParams> = async (content) => {
+  const data = await client.get<BlogType>({
     endpoint: 'techblog',
-    contentId: context.params.id,
+    contentId: content.params?.id,
   })
 
   return {
     props: {
       blog: data,
     },
+    revalidate: 1,
   }
 }
 
