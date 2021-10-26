@@ -1,16 +1,14 @@
 import React from 'react'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import styles from '../../styles/global.module.scss'
 import { Container } from '../../components/Container'
 import { Header } from '../../components/Header'
-import { client } from '../../libs/client'
-import { BlogType, ResponseBlogDataType } from '../../types/blogType'
 
-type Props = {
-  blog: BlogType
-}
+import { getStaticPaths, getStaticProps } from './[id].hook'
+import { InferGetServerSidePropsType } from 'next'
+
+type Props = InferGetServerSidePropsType<typeof getStaticProps>
 
 const BlogId: React.FC<Props> = ({ blog }) => {
   const router = useRouter()
@@ -36,24 +34,5 @@ const BlogId: React.FC<Props> = ({ blog }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.get<ResponseBlogDataType>({ endpoint: 'techblog' })
-
-  const paths = data.contents.map((content) => `/blog/${content.id}`)
-  return { paths, fallback: false }
-}
-
-export const getStaticProps = async (context: { params: { id: string } }) => {
-  const data = await client.get({
-    endpoint: 'techblog',
-    contentId: context.params.id,
-  })
-
-  return {
-    props: {
-      blog: data,
-    },
-  }
-}
-
+export { getStaticPaths, getStaticProps }
 export default BlogId
