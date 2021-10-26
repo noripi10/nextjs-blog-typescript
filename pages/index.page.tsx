@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import styles from '../styles/global.module.scss'
 import blogStyles from '../styles/blog.module.scss'
 import { Container } from '../components/Container'
