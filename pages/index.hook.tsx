@@ -27,7 +27,7 @@ import { BlogType, ResponseBlogDataType } from '../types/blogType'
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   let offset = context.query?.offset ?? '0'
-  let limit = context.query?.limit ?? '4'
+  let limit = context.query?.limit ?? '2'
   if (offset instanceof Array) {
     offset = offset[0]
   }
