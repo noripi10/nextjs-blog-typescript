@@ -6,21 +6,23 @@ type Props = {
 }
 
 export const TopVisual: React.FC<Props> = (props: Props) => {
-  const height = props.height || '300px'
+  const { url = '/assets/main.jpg' } = props
+  const height = props.height || 400
   return (
     <div
       style={{
+        display: 'flex',
+        flex: 1,
         position: 'relative',
         width: '100%',
         height: height,
         background: 'rgba(3,3,3,0.6)',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 24,
       }}
     >
-      {props.url ? <Image src={props.url} alt='404 page' layout='fill' /> : <span>Top Visual</span>}
+      <Image src={url} alt='top-image' layout='fill' objectFit='cover' quality={100} />
     </div>
   )
 }

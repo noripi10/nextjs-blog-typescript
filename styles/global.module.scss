@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
 .main {
@@ -11,6 +11,13 @@
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.subMain {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer {
@@ -120,4 +127,9 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+[data-theme='dark'] .footer {
+  background: #000;
+  color: #fff;
 }

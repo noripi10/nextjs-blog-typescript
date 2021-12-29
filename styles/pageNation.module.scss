@@ -1,0 +1,25 @@
+.pagenation {
+  display: flex;
+  flex: 0.3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  max-width: 800px;
+  padding-bottom: 24px;
+  .pagenatiom_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: linear-gradient(rgb(32, 10, 120), rgb(11, 47, 176));
+    color: rgb(255, 255, 255);
+    padding: 16px;
+    margin: 0 4px;
+    &:hover {
+      background: linear-gradient(rgb(11, 47, 176), rgb(32, 10, 120));
+      transform: scale(1.2);
+    }
+  }
+}

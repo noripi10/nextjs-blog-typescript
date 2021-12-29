@@ -15,9 +15,9 @@ export const ThemeButton: React.FC = () => {
     <div className={styles.themeButton}>
       <div id='themeToggle' onClick={onChangeTheme}>
         {theme === 'dark' ? (
-          <FontAwesomeIcon icon={faMoon} color='#2c2c2c' className={styles.themeIcon} />
+          <FontAwesomeIcon icon={faMoon} color='#2c2c2c' size='lg' className={styles.themeIcon} />
         ) : (
-          <FontAwesomeIcon icon={faSun} color='#fff' className={styles.themeIcon} />
+          <FontAwesomeIcon icon={faSun} color='#fff' size='lg' className={styles.themeIcon} />
         )}
       </div>
     </div>
