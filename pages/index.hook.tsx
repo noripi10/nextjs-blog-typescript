@@ -38,9 +38,9 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   const data = await client.get<ResponseBlogDataType>({
     endpoint: 'techblog',
     queries: {
-      offset: !!offset ? parseInt(offset) : 0,
+      offset: !!offset ? parseInt(offset) * parseInt(limit) : 0,
       limit: parseInt(limit),
-      orders: 'createdAt',
+      orders: 'createDate',
     },
   })
   const blogs = data.contents
