@@ -15,20 +15,24 @@ const BlogId: React.FC<Props> = ({ blog }) => {
 
   return (
     <Container title={blog.title}>
+      <Header />
+      {blog.mainVisual.url && (
+        <Image src={blog.mainVisual.url} alt='main blog image' objectFit='cover' width={1024} height={160} />
+      )}
       <main className={styles.main}>
-        <Header />
-        {blog.mainVisual.url && (
-          <Image src={blog.mainVisual.url} alt='main blog image' objectFit='cover' width={650} height={450} />
-        )}
-        <h1>{blog.title}</h1>
-        <p>{blog.category.name}</p>
-        <p>{blog.publishedAt}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${blog.body}`,
-          }}
-        />
-        <button onClick={() => router.push('/')}>戻る</button>
+        <div className={styles.contents}>
+          <h1>{blog.title}</h1>
+          <p>{blog.category.name}</p>
+          <p>{blog.publishedAt}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `${blog.body}`,
+            }}
+          />
+        </div>
+        <button className={styles.button} onClick={() => router.push('/')}>
+          戻る
+        </button>
       </main>
     </Container>
   )
